@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/10)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/15)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `3/30`
+Completed tasks: `4/30`
 
 
 
