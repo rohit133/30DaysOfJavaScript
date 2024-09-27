@@ -184,6 +184,28 @@ console.log(counter.reset()); // 0
 
 **Problem**: Apply a transformation function to each element of an array.
 
+1. Using For Loop 
+```JavaScript 
+var map = function (arr, fn) {
+  for (let i = 0; i < arr.length; ++i) {
+    arr[i] = fn(arr[i], i);
+  }
+  return arr;
+};
+
+```
+
+2. Using forEach
+```JavaScript 
+var map = function (arr, fn) {
+    let transformedArray = [];
+    arr.forEach((element, index) => {
+        transformedArray[index] = fn(element, index);
+    });
+    return transformedArray
+  };
+
+```
 
 
 
