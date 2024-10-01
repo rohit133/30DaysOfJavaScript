@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/15)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/20)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `4/30`
+Completed tasks: `6/30`
 
 
 
@@ -213,7 +213,18 @@ var map = function (arr, fn) {
 
 **Problem**: Filter elements from an array based on a condition.
 
+```JavaScript
+var filter = function(arr, fn) {
+    let resultArray = []
+    for(let i=0; i<arr.length; i++){
+        if(fn(arr[i], i)){
+            resultArray.push(arr[i]);
+        }
+    }
+    return resultArray
+};
 
+```
 
 
 ## 7. Array Reduce Transformation
