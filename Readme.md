@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/20)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/22)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `6/30`
+Completed tasks: `7/30`
 
 
 
@@ -230,7 +230,23 @@ var filter = function(arr, fn) {
 ## 7. Array Reduce Transformation
 
 **Problem**: Transform an array using `reduce()`.
+```JavaScript
+/**
+ * @param {number[]} nums
+ * @param {Function} fn
+ * @param {number} init
+ * @return {number}
+ */
+var reduce = function (nums, fn, init) {
+  let val=init;
+  for (let i=0; i<nums.length; i++) {
+    val=fn(val, nums[i]);
+  }
+  return val;
+};
 
+
+```
 
 
 
