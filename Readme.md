@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/22)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/24)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `7/30`
+Completed tasks: `8/30`
 
 
 
@@ -254,7 +254,50 @@ var reduce = function (nums, fn, init) {
 
 **Problem**: Create a function composition that pipes multiple functions together.
 
+```JavaScript
 
+/**
+ * @param {Function[]} functions
+ * @return {Function}
+ */
+var compose = function (functions) {
+    if (functions.length === 0) {
+        return function (x) { return x; };
+    }
+    return functions.reduceRight(function (prevFn, nextFn) {
+        return function (x) {
+            return nextFn(prevFn(x));
+        };
+    });
+};
+
+
+const fn = compose([x => x + 1, x => 2 * x])
+fn(4) // 9
+
+
+```
+
+```TypeScript
+
+type F = (x: number) => number;
+
+function compose(functions: F[]): F {
+    if (functions.length === 0) {
+        return (x: any) => x;
+    }
+    return functions.reduceRight((prevFn, nextFn) => {
+        return (x: any) => {
+            return nextFn(prevFn(x));
+        };
+    });
+};
+
+
+const fn = compose([x => x + 1, x => 2 * x])
+ fn(4) // 9
+
+```
 
 
 ## 9. Return Length of Arguments Passed
