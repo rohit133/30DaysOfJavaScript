@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/24)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/26)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `8/30`
+Completed tasks: `9/30`
 
 
 
@@ -304,8 +304,33 @@ const fn = compose([x => x + 1, x => 2 * x])
 
 **Problem**: Return the number of arguments passed to a function.
 
+#### Solution 1 using Rest parameters
 
+```JavaScript 
+/**
+ * @param {...(null|boolean|number|string|Array|Object)} args
+ * @return {number}
+ */
+var argumentsLength = function (...args) {
+    let count = 0
+    for (let i = 0; i < args.length; i++) {
+        count += 1;
+    }
+    return count
+};
+```
 
+#### Solution 2 using Arguments object
+
+```JavaScript 
+/**
+ * @param {...(null|boolean|number|string|Array|Object)} args
+ * @return {number}
+ */
+var argumentsLength = function (...args) {
+    return arguments.length
+};
+```
 
 ## 10. Allow One Function Call
 
