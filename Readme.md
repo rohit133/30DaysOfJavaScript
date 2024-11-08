@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/26)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/28)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `9/30`
+Completed tasks: `10/30`
 
 
 
@@ -336,8 +336,42 @@ var argumentsLength = function (...args) {
 
 **Problem**: Allow a function to be called only once.
 
+```JavaScript 
+/**
+ * @param {Function} fn
+ * @return {Function}
+ */
 
 
+// Solution 1
+
+var once = function (fn) {
+    let count = 0
+    return function (...args) {
+        if (count === 0) {
+            count = 1
+            return fn(...args)
+        } else {
+            return undefined;
+        }
+    }
+};
+```
+
+```JavaScript 
+/**
+ * @param {Function} fn
+ * @return {Function}
+ */
+
+
+// Solution 2
+
+var once = function (fn) {
+    let isExecuted = false;
+    return (...args) => (isExecuted ? undefined : ((isExecuted = true), fn(...args)))
+}
+```
 
 ## 11. Memoize
 
