@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/30)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/32)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `11/30`
+Completed tasks: `12/30`
 
 
 
@@ -415,7 +415,18 @@ function memoize(fn) {
 
 **Problem**: Add two promises.
 
+```JavaScript 
+/**
+ * @param {Promise} promise1
+ * @param {Promise} promise2
+ * @return {Promise}
+ */
+var addTwoPromises = async function(promise1, promise2) {
+    return (await promise1 + await promise2);
+};
 
+addTwoPromises(Promise.resolve(2), Promise.resolve(2)).then(console.log); // 4
+```
 
 
 ## 13. Sleep
