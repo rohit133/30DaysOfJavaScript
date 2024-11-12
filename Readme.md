@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/32)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/34)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `12/30`
+Completed tasks: `14/30`
 
 
 
@@ -433,6 +433,44 @@ addTwoPromises(Promise.resolve(2), Promise.resolve(2)).then(console.log); // 4
 
 **Problem**: Implement a sleep function that pauses execution for a given number of milliseconds.
 
+
+#### Solution - 1  
+```JavaScript 
+/**
+ * @param {number} millis
+ * @return {Promise}
+ */
+async function sleep(millis) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, millis);
+  });
+}
+
+/** 
+ * let t = Date.now()
+ * sleep(100).then(() => console.log(Date.now() - t)) // 100
+ */
+```
+
+#### Solution - 2 
+```JavaScript 
+/**
+ * @param {number} millis
+ * @return {Promise}
+ */
+async function sleep(millis) {
+  await new Promise(resolve => {
+    setTimeout(resolve, millis)
+  });
+}
+
+/** 
+ * let t = Date.now()
+ * sleep(100).then(() => console.log(Date.now() - t)) // 100
+ */
+```
 
 
 
