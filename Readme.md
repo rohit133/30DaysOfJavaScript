@@ -6,7 +6,7 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/34)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/36)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
@@ -479,7 +479,45 @@ async function sleep(millis) {
 
 **Problem**: Cancel a timeout before it executes.
 
+```JavaScript
+/**
+ * @param {Function} fn
+ * @param {Array} args
+ * @param {number} t
+ * @return {Function}
+ */
+var cancellable = function (fn, args, t) {
+    const cancelFn = () => {
+        clearTimeout(functionTimeID);
+    }
+    const functionTimeID = setTimeout(() => {
+        fn(...args);
+    }, t)
+    return cancelFn;
+};
 
+const result = [];
+const fn = (x) => x * 5;
+const args = [2],
+  t = 20,
+  cancelTimeMs = 50;
+const start = performance.now();
+
+const log = (...argsArr) => {
+  const diff = Math.floor(performance.now() - start);
+  result.push({ time: diff, returned: fn(...argsArr) });
+};
+
+const cancel = cancellable(log, args, t);
+const maxT = Math.max(t, cancelTimeMs);
+
+setTimeout(cancel, cancelTimeMs);
+
+setTimeout(() => {
+  console.log(result); // [{"time":20,"returned":10}]
+}, maxT + 15);
+
+```
 
 
 ## 15. Interval Cancellation
