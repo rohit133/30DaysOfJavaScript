@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/38)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/40)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `15/30`
+Completed tasks: `16/30`
 
 
 
@@ -573,6 +573,28 @@ setTimeout(() => {
 
 **Problem**: Limit the time a promise takes to resolve.
 
+```JavaScript
+/**
+ * @param {Function} fn
+ * @param {number} t
+ * @return {Function}
+ */
+var timeLimit = function(fn, t) {
+    return async function(...args) {
+        const originalFnPromise = fn(...args);
+        const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => {
+                reject("Time Limit Exceeded")
+            }, t);
+        })        
+        return Promise.race([originalFnPromise, timeoutPromise]);
+    }
+};
+
+const limited = timeLimit((t) => new Promise(res => setTimeout(res, t)), 100);
+limited(150).catch(console.log) // "Time Limit Exceeded" at t=100ms
+
+```
 
 
 
