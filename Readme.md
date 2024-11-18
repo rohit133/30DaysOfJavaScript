@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/40)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/42)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `16/30`
+Completed tasks: `18/30`
 
 
 
@@ -602,7 +602,49 @@ limited(150).catch(console.log) // "Time Limit Exceeded" at t=100ms
 
 **Problem**: Implement a caching function with an expiry time for cached values.
 
+```JavaScript
+var TimeLimitedCache = function () {
+    this.cache = new Map();
 
+};
+
+/** 
+ * @param {number} key
+ * @param {number} value
+ * @param {number} duration time until expiration in ms
+ * @return {boolean} if un-expired key already existed
+ */
+TimeLimitedCache.prototype.set = function (key, value, duration) {
+    let found = this.cache.has(key);
+    if (found) clearTimeout.has(this.cache.get(key).ref);
+    this.cache.set(key, {
+        value,
+        ref: setTimeout(() => this.cache.delete(key), duration)
+    })
+    return found;
+};
+
+/** 
+ * @param {number} key
+ * @return {number} value associated with key
+ */
+TimeLimitedCache.prototype.get = function (key) {
+    return this.cache.has(key) ? this.cache.get(key).value : -1;
+};
+
+/** 
+ * @return {number} count of non-expired keys
+ */
+TimeLimitedCache.prototype.count = function () {
+    return this.cache.size;
+};
+
+const timeLimitedCache = new TimeLimitedCache();
+console.log(timeLimitedCache.set(1, 42, 1000)); // false
+console.log(timeLimitedCache.get(1)); // 42
+console.log(timeLimitedCache.count());  // 1
+
+```
 
 
 ## 18. Debounce
