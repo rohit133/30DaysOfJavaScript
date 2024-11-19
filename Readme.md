@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/42)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/44)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `18/30`
+Completed tasks: `20/30`
 
 
 
@@ -651,7 +651,27 @@ console.log(timeLimitedCache.count());  // 1
 
 **Problem**: Implement a debouncing function to limit how frequently a function can be invoked.
 
+```JavaScript
+/**
+ * @param {Function} fn
+ * @param {number} t milliseconds
+ * @return {Function}
+ */
+var debounce = function(fn, t) {
+    let timer;
+    return function(...args) {
+        clearTimeout(timer)
+        timer = setTimeout(() => {fn.apply(this, args);}, t);
+    };
+};
 
+
+const log = debounce(console.log, 100);
+log('Hello'); // cancelled
+log('Hello'); // cancelled
+log('Hello'); // Logged at t=100ms
+
+```
 
 
 ## 19. Execute Asynchronous Functions in Parallel
