@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/46)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/48)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `19/30`
+Completed tasks: `20/30`
 
 
 
@@ -730,6 +730,19 @@ promise3.then(console.log); // {"t":150,"resolved":[4,10,16]}
 
 **Problem**: Check if a JSON object is empty.
 
+```JavaScript
+/**
+ * @param {Object|Array} obj
+ * @return {boolean}
+ */
+var isEmpty = function(obj) {
+    return Object.keys(obj).length === 0;
+}
+
+const obj1 = {"x": 5, "y": 42};
+const obj2 = {}
+console.log(isEmpty(obj1))
+```
 
 
 
