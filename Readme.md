@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/48)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/50)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `20/30`
+Completed tasks: `21/30`
 
 
 
@@ -750,7 +750,23 @@ console.log(isEmpty(obj1))
 
 **Problem**: Split an array into chunks of a given size.
 
+```JavaScript
 
+/**
+ * @param {Array} arr
+ * @param {number} size
+ * @return {Array}
+ */
+var chunk = function(arr, size) {
+    const result = [];
+    for(let i=0; i<arr.length; i+=size){
+        result.push(arr.slice(i,i+size));
+    }
+    return result;
+};
+
+
+```
 
 
 ## 22. Array Prototype Last
