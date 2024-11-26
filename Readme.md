@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/82)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/84)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `22/30`
+Completed tasks: `23/30`
 
 
 
@@ -791,7 +791,23 @@ console.log(arr.last());
 
 **Problem**: Group elements of an array by a specific criterion.
 
+```JavaScript
+/**
+ * @param {Function} fn
+ * @return {Object}
+ */
+Array.prototype.groupBy = function (fn) {
+    const obj = {};
+    for (let e of this) {
+        const key = fn((e))
+        obj[key] ||= [];
+        obj[key].push(e);
+    }
+    return obj;
+};
+[1,2,3].groupBy(String) // {"1":[1],"2":[2],"3":[3]}
 
+```
 
 
 ## 24. Sort By
