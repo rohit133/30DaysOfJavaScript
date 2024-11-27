@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/84)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/86)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `23/30`
+Completed tasks: `24/30`
 
 
 
@@ -814,7 +814,17 @@ Array.prototype.groupBy = function (fn) {
 
 **Problem**: Sort an array of objects by a specific property.
 
+```JavaScript
+/**
+ * @param {Array} arr
+ * @param {Function} fn
+ * @return {Array}
+ */
+var sortBy = function (arr, fn) {
+    return arr.sort((a, b) => fn(a) - fn(b));
+};
 
+```
 
 
 ## 25. Join Two Arrays by ID
