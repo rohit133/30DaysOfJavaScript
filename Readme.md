@@ -6,11 +6,11 @@
 ### Progress
 
 <!-- Progress bar -->
-![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/86)
+![Progress](https://us-central1-progress-markdown.cloudfunctions.net/progress/88)
 
 You can track my progress here as I work through 30 Days of JavaScript.
 
-Completed tasks: `24/30`
+Completed tasks: `25/30`
 
 
 
@@ -831,7 +831,28 @@ var sortBy = function (arr, fn) {
 
 **Problem**: Join two arrays by a common key (ID).
 
+```JavaScript
+/**
+ * @param {Array} arr1
+ * @param {Array} arr2
+ * @return {Array}
+ */
+var join = function(arr1, arr2) {
+    let items = arr1.concat(arr2);
+    let result = {};
 
+    for(const obj of items){
+        if(!result[obj.id]){
+            result[obj.id] = obj;
+            continue;
+        }
+        result[obj.id] = {...result[obj.id], ...obj};
+    }
+    return Object.values(result);
+
+};
+
+```
 
 
 ## 26. Flatten Deeply Nested Array
